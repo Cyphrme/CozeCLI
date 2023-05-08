@@ -20,6 +20,12 @@ Install executable from local copy of the repository:
 go install coze.go
 ```
 
+## Go mod
+```Usually have this in `go.mod` for `go.work` to work.  
+// Go work/go mod/go has a bug: https://github.com/golang/go/issues/54264
+// Fix this once they fix go workspace
+replace github.com/cyphrme/coze@latest => ../coze
+```
 
 ### sign
 ```sh
