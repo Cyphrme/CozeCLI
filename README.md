@@ -9,17 +9,16 @@ Installation from source requires Go.
 go install github.com/cyphrme/coze_cli@latest
 ```
 
-
-Or install from local copy of the repository:
-```sh
-go install coze.go
-```
-
-Also `$GOPATH` (which usually contains `$GOBIN`) needs to be in `$PATH`.  Usually
+Note that `$GOPATH` (which usually contains `$GOBIN`) needs to be in `$PATH`.  Usually
 `$GOBIN` is is `$GOPATH/bin`.  (Usually `~/go/bin` or `~/dev/go/bin`)
 
 
 ## Development and Testing 
+
+Install executable from local copy of the repository:
+```sh
+go install coze.go
+```
 
 
 ### sign
