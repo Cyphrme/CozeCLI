@@ -1,8 +1,16 @@
 # Coze CLI client
 
+See also the [main Coze specification repository](https://github.com/Cyphrme/Coze)
+
 ## Installation
 Installation from source requires Go. 
 
+```sh
+go install github.com/cyphrme/coze_cli@latest
+```
+
+
+Or install from local copy of the repository:
 ```sh
 go install coze.go
 ```
@@ -101,13 +109,3 @@ Flags Ideas:
 -typ <type> for "include typ with this value".
 
 Or perhaps the opposite.  --noalg --notmb --noiat --notyp or --no for not including any no explicitly specified fields.  
-
-
-// Go Coze TODO
- - Meta should show alg. 
- - RVK should not be populated with typ (unless specified).  
- - This errors and it should not: go run coze.go verify '{"pay":{"msg":"Hi!","alg":"ES256","tmb":"QV_dSgjtGP7kiZLxqhPsp5P9Gufgv7rwzFGuUCjm_Zw"},"sig":"pmWSJdfxsG-26rLBHxRp6qLARZROxDFCnGlPpDtAFqZZ6sIs3-x8BZ4FTf478DG0kdPM8QVotfEl2lBzdVRS2g"}' '{"alg":"ES256","x":"tmdb5tBJlKaCOTgvsZvtlf4XCL8MyasTdqKDYzdRsc6p898M4IuvQAsEthE624-jNyWzR4BLM29eupkxu80zGw"} > ' Running verify panic:  VerifyCoze: key tmb "" and coze tmb "QV_dSgjtGP7kiZLxqhPsp5P9Gufgv7rwzFGuUCjm_Zw" do not match
-- Verifier no tmb payloads should verify. Currently throwing an error.
-
-
-
