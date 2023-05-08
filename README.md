@@ -1,31 +1,40 @@
-# Coze CLI client
+# `coze` 
+`coze` - a CLI client for Coze, a cryptographic JSON messaging specification.
 
 See also the [main Coze specification repository](https://github.com/Cyphrme/Coze)
 
 ## Installation
-Installation from source requires Go. 
+Installation from source requires Go.  Install executable `coze` from local copy
+of the repository:
 
-```sh
-go install github.com/cyphrme/coze_cli@latest
-```
-
-Note that `$GOPATH` (which usually contains `$GOBIN`) needs to be in `$PATH`.  Usually
-`$GOBIN` is is `$GOPATH/bin`.  (Usually `~/go/bin` or `~/dev/go/bin`)
-
-
-## Development and Testing 
-
-Install executable from local copy of the repository:
 ```sh
 go install coze.go
 ```
 
+Or alternatively (on non-Nix systems):
+
+```
+go install github.com/cyphrme/coze_cli@latest && mv $GOBIN/coze_cli coze
+```
+Note that `$GOPATH` and/or `$GOBIN` needs to be in `$PATH`.
+Otherwise Go usually installs to `/usr/local/bin`.
+
+The above installs the executable as `coze`, but `go install
+github.com/cyphrme/coze_cli` installs as `coze_cli`.  After the `go build -o`
+[proposal is implemented](https://github.com/golang/go/issues/44469), in the
+future install should be possible with `go install -o coze
+github.com/cyphrme/coze_cli@latest`.
+
+
+# Development and Testing 
+
 ## Go mod
-```Usually have this in `go.mod` for `go.work` to work.  
+The directive `replace` in `go.mod` is useful for local developement of Go coze repo and the cli coze repo.  Usually have this in `go.mod` for
+`go.work` to work.  However, don't commit with `replace` as it will break `go install`.
 // Go work/go mod/go has a bug: https://github.com/golang/go/issues/54264
 // Fix this once they fix go workspace
 replace github.com/cyphrme/coze@latest => ../coze
-```
+
 
 ### sign
 ```sh
